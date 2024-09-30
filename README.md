@@ -3,28 +3,28 @@
 ```mermaid
 classDiagram
     class Fornecedor {
-        +int id
-        +String nome
-        +String contato
+        -UUID idFornecedor
+        -String nome
+        -String contato
         +List<Produto> produtosFornecidos
         +void fornecerProduto(Produto produto, int quantidade)
     }
 
     class Fabricante {
-        +int id
-        +String nome
-        +String paisDeOrigem
+        -UUID idFabricante
+        -String nome
+        -String paisDeOrigem
         +List<Produto> produtosFabricados
         +void fabricarProduto(Produto produto)
     }
 
     class Produto {
-        +int id
-        +String nome
-        +double preco
-        +int quantidadeEmEstoque
-        +Fornecedor fornecedor
-        +Fabricante fabricante
+        -long idProduto
+        -String nome
+        -double preco
+        -int quantidadeEmEstoque
+        -Fornecedor fornecedor
+        -Fabricante fabricante
         +void adicionarEstoque(int quantidade)
         +void removerEstoque(int quantidade)
         +void atualizarPreco(double novoPreco)
@@ -38,15 +38,15 @@ classDiagram
     }
 
     class Funcionario {
-        +int id
-        +String nome
-        +String cargo
-        +double salario
+        -long id
+        -String nome
+        -String cargo
+        -double salario
         +void realizarVenda(Venda venda)
     }
 
     class Venda {
-        +int id
+        -long idVenda
         +Date data
         +Funcionario funcionario
         +List<Produto> produtosVendidos
@@ -56,18 +56,18 @@ classDiagram
     }
 
     class Pagamento {
-        +int id
-        +String metodoPagamento
-        +double valor
+        -long idPagamento
+        -String metodoPagamento
+        -double valor
         +Venda venda
         +void realizarPagamento()
     }
 
     class Cliente {
-        +int id
-        +String nome
-        +String email
-        +String telefone
+        -UUID id
+        -String nome
+        -String email
+        -String telefone
         +List<Venda> historicoVendas
         +void comprarProduto(Venda venda)
     }
