@@ -64,7 +64,7 @@ classDiagram
     }
 
     class Customer {
-        -UUID id
+        -UUID idCustomer
         -String name
         -String email
         -String phone
